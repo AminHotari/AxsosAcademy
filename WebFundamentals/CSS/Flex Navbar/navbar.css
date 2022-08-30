@@ -1,0 +1,38 @@
+.nav {
+    background-color: #333333;
+    display: flex;
+    justify-content: space-between;
+
+}
+h1 {
+    color: white;
+    font-weight: 100;
+    font-family: sans-serif;
+    margin-left: 20px;
+}
+.nav-links {
+    color: white;
+    margin-top: 25px;
+    font-family: sans-serif;
+}
+a {
+    padding: 10px;
+    text-decoration: none;
+    margin-right: 10px;
+    color: #c4c4c4;
+}
+
+button {
+    width: 90px;
+    height: 25px;
+    margin-right: 20px;
+    background-color: #17a2b8;
+    color: whitesmoke;
+    font-family: sans-serif;
+    font-size: medium;
+    box-shadow: 5px 5px black;
+}
+
+.active {
+    color: white;
+}

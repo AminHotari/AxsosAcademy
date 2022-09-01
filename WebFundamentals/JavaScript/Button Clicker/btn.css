@@ -1,0 +1,131 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    margin: 0 auto;
+    width: 740px;
+    border: 1px solid black;
+}
+
+header{
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    font-family: sans-serif;
+    background-color: #cccccc;
+}
+
+header h1 {
+    margin-top: 7px;
+    font-weight: 500;
+}
+
+
+header input {
+    width: 30%;
+    height: 50%;
+    margin-top: 10px;
+}
+
+header button{
+    background-color: #2b78e4;
+    color: white;
+    width: 8%;
+    height: 50%;
+    margin-top: 10px;
+    box-shadow: 2px 2px black;
+}
+
+main{
+    display: flex;
+    justify-content: space-around
+}
+
+.top{
+    width: 120%;
+    height: 190px;
+    border: 2px solid black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+
+}
+
+.btn-top-left,.btn-top-left1{
+    width: 90%;
+    height: 25px;
+    background-color: #ffd966;
+    box-shadow: 2px 2px black;
+
+}
+
+.topleft, .topleft1{
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    height: inherit;
+    justify-content: space-around;
+    font-family: sans-serif;
+    align-items: center;
+}
+
+.topleft h2,.topleft1 h2{
+    font-size: 36px;
+    font-weight: 500;
+}
+
+
+.topleft h4,.topleft1 h4{
+    font-style: italic;
+}
+
+span{
+    font-style: italic;
+}
+
+.topright p,.topright1 p {
+    font-size: larger;
+}
+
+.bottom{
+    width: 120%;
+    height: 190px;
+    border: 2px solid black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.right {
+    width: 30%;
+    border: 2px solid black;
+    height: 140px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+    
+.right h1 {
+    font-family: sans-serif;
+    font-size: x-large;
+
+}
+
+.right button{
+    font-size: medium;
+    width: 85%;
+    height: 25%;
+    background-color: #93c47d;
+    box-shadow: 2px 2px black;
+}
+
+.right span {
+    font-weight: 500;
+    font-style: initial;
+}

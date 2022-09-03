@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+main{
+    width: 35%;
+    height: 140px;
+    border: 2px solid black;
+    margin-top: 40px;
+    margin-left: 100px;
+}
+
+.top{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.top h1{
+    font-weight: 500;
+    font-family: sans-serif;
+}
+
+.top p{
+    margin-left: 130px;
+    margin-left: 130px;
+    font-size: medium;
+    font-family: cursive;
+}
+
+.top button{
+    width: 15%;
+    height: 30px;
+    font-family: cursive;
+    font-size: medium;
+    background-color: #ffd966;
+    
+}
+
+.bottom p {
+    margin-left: 15px;
+    font-family: cursive;
+    margin-top: 20px;
+}

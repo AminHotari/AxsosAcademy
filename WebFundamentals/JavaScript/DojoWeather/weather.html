@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DojoWeather</title>
+    <link rel="stylesheet" href="weather.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="head-left">
+                <h1 class="dojo">DojoWeather</h1>
+            </div>
+            <div class="head-right">
+                <ul class="head-right-ul">
+                    <li class="li1" onclick="aler()"><a href="#">Burbank</a> </li>
+                    <li class="li1"><a href="#">Chicago</a></li>
+                    <li class="li1"><a href="#">Dallas</a></li>
+                </ul>
+            </div>
+        </header>
+
+        <div class="med">
+            <div class="head">
+                <h2>San Jose</h2>
+                <div class="temp">
+                    <label>show temperature in</label>
+                    <select name="temperature" onchange="convert(this)">
+                        <option>°C</option>
+                        <option>°F</option>
+                    </select>
+
+                </div>
+            </div>
+
+            <main>
+                <div class="main1">
+                    <h3 class="h3-main1">Today</h3>
+                    <img src="assets\some_rain.png" alt="rain">
+                    <h5 class="h5-main1">some rain</h5>
+                    <div class="number">
+                       <p><span class="red"> 24°</span></p>
+                       <p class="blue"> 18°</p>
+                    </div>
+                    
+                </div>
+
+                <div class="main1">
+                    <h3 class="h3-main1">Tomorrow</h3>
+                    <img src="assets\some_sun.png" alt="sun">
+                    <h5 class="h5-main1">some sun</h5>
+                    <div class="number">
+                       <p><span class="red">27°</span></p>
+                       <p class="blue"> 19°</p>
+                    </div>   
+                </div>
+
+                <div class="main1">
+                    <h3 class="h3-main1">Friday</h3>
+                    <img src="assets\some_clouds.png" alt="clouds">
+                    <h5 class="h5-main1">some clouds</h5>
+                    <div class="number">
+                       <p><span class="red">21°</span></p>
+                       <p class="blue"> 16°</p>
+                    </div>
+                </div>
+
+                <div class="main1">
+                    <h3 class="h3-main1">Saturday</h3>
+                    <img src="assets\some_sun.png" alt="sun">
+                    <h5 class="h5-main1">some sun</h5>
+                    <div class="number">
+                       <p><span class="red">26°</span></p>
+                       <p class="blue">21°</p>
+                    </div>   
+                </div>
+
+                
+            </main>
+            <footer>
+                <img src="assets\cookie.png" alt="cookie">
+                <div class="foot">
+                    <h4>Stop! Cookie time</h4>
+                    <p>We use cookies (sadly not the edible ones) to personalize <br>
+                        content and ads, to provide social media features and to <br>
+                        analyse our traffc. <a href="#"> Read more...</a>
+                    </p>
+                </div>
+
+                <button onclick="dismiss()">I Accept</button>
+            
+            </footer>
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+<script src="weather.js"></script>    
+</body>
+</html>

@@ -1,0 +1,39 @@
+#calculator{
+    background-color: black;
+    margin: 0 auto;
+    text-align: center;
+    width: 370px;
+    height: 550px;
+    /* border: 6px solid rgb(252, 143, 41); */
+}
+button{
+    border-radius: 50%;
+    width: 4rem;
+    height: 4rem;
+    background-color: #666;
+    color: white;
+    font-size: 2rem;
+    margin-top: 20px;
+    margin-left: 10px;
+
+}
+#equals{
+    border-radius: 60px;
+    width: 80%;
+    margin-left: 8px;
+    background-color: #cccccc;
+    color: black;
+}
+.operator{
+    background-color: rgb(252, 143, 41);
+}
+#display{
+    
+    height: 90px;
+    margin-top: 25px;
+    color: white;
+    text-align: right;
+    font-size: 5rem;
+    padding-right: 20px;
+    
+}

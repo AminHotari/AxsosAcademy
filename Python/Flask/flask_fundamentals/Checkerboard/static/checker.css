@@ -1,0 +1,20 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.row{
+    display: flex;
+}
+
+.red{
+    width: 10rem;
+    height: 10rem;
+    background-color: red;
+}
+
+.black{
+    width: 10rem;
+    height: 10rem;
+    background-color: black;
+}

@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+form {
+    margin: 0 auto;
+    width: 20%;
+    border: 0.1rem solid black;
+    margin-top: 5rem;
+    padding: 2rem;
+}
+
+h1{
+    text-decoration: underline;
+    font-family: monospace;
+    font-size: larger;
+    padding-right: 1rem;
+    font-weight: lighter;
+}
+form p{
+    font-family: monospace;
+    padding-left: 0.5rem;
+    padding-bottom: 0.1rem;
+}
+
+p input {
+    margin-left: 16rem;
+    box-shadow: 0.2rem 0.2rem black;
+}

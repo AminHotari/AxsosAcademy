@@ -1,0 +1,23 @@
+*{
+    margin: 0 auto;
+    padding: 0 auto;
+}
+form {
+    margin: 0 auto;
+    width: 30%;
+    border: 0.1rem solid black;
+    margin-top: 5rem;
+    padding: 2rem;
+}
+
+p{
+    font-family: monospace;
+    margin-left: 0.4rem;
+    font-size: 0.9rem;
+    padding-bottom: 1rem;
+}
+
+.button input {
+    margin-left: 25rem;
+    box-shadow: 0.2rem 0.2rem black;
+}

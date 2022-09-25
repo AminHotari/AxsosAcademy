@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ninja Gold Game</title>
+    {%load static%}
+    <link rel="stylesheet" href="{%static 'gold.css'%}">
+</head>
+<body>
+    <header>Your Gold: <div>{{request.session.num}}</div></header>
+    <main>
+        <form action="/process_money" method="post">
+            {% csrf_token %}
+            <h4>Farm</h4>
+            <p class="inter">(earns 10-20 gold)</p>
+            <input type="submit" value="Find Gold!" class="box">
+            <input type="hidden" name="find" value="Farm">
+        </form>
+        <form action="/process_money" method="post">
+            {% csrf_token %}
+            <h4>Cave</h4>
+            <p class="inter">(earns 10-20 gold)</p>
+            <input type="submit" value="Find Gold!" class="box">
+            <input type="hidden" name="find" value="Cave">
+        </form>
+        <form action="/process_money" method="post">
+            {% csrf_token %}
+            <h4>House</h4>
+            <p class="inter">(earns 10-20 gold)</p>
+            <input type="submit" value="Find Gold!" class="box">
+            <input type="hidden" name="find" value="House">
+        </form>
+        <form action="/process_money1" method="post">
+            {% csrf_token %}
+            <h4>Quest</h4>
+            <p class="inter">(earns/takes 0-50 gold)</p>
+            <input type="submit" value="Find Gold!" class="box">
+            <input type="hidden" name="find" value="Quest">
+        </form>
+    </main>
+    <footer>
+        Activities: <br>
+        <div class="foot">
+            {%for active in request.session.list reversed %}
+            {%if "Lost" in active%}
+            <p class="red">{{active}}</p>
+            {%else%}
+            <p class="green">{{active}}</p>
+            {%endif%}
+            {%endfor%}
+        </div>
+    </footer>
+    
+</body>
+</html>

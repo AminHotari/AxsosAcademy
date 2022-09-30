@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books & Authors</title>
+    <style>
+        .return{
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <h3>{{author_detail.first_name}} {{author_detail.last_name}}</h3>
+    <p>ID: {{author_detail.id}}</p>
+    <p>Notes: {{author_detail.notes}}</p>
+    <p>Books:</p>
+    {%for book in author_detail.books.all%}
+    <ul>
+        <li>{{book.title}}</li>
+    </ul>
+    {%endfor%}
+    <form action="/addbooks/{{author_detail.id}}" method="post">
+        {%csrf_token%}
+        <select name="remain_book">
+            {%for book in author_book%}
+            {%if book not in author_detail.books.all%}
+            <option value="{{book.id}}">{{book.title}}</option>
+            {%endif%}
+            {%endfor%}
+        </select>
+        <button>Add</button>
+    </form>
+    <form action="/authors" method="post" class="return">
+        {%csrf_token%}
+        <button>Return</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Registration</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-evenly;
+        }
+        h2{
+            margin-bottom: 2rem;
+            margin-top: 2rem;
+        }
+        button{
+            box-shadow: 0.2rem 0.2rem;
+            background-color: white;
+            margin-left: 4rem;
+            margin-top: 1rem;
+            width: 23%;
+        }
+        input{
+            border: 0.1rem solid;
+            width: 40%;
+            height: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        label{
+            margin-bottom: 0.5rem;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">        
+        <form action="register" method="post">
+            {%csrf_token%}
+            <h2>Registration</h2>
+            <table>
+                <tr>                    
+                    <td><label>First Name:</label></td>
+                    <td><input type="text" name="first_name"></td>
+                </tr>
+                <tr>                   
+                    <td><label>last Name:</label></td>
+                    <td><input type="text" name="last_name"></td>
+                </tr>
+                <tr>                    
+                    <td><label>Email:</label></td>
+                    <td><input type="text" name="email"></td>
+                </tr>
+                <tr>                    
+                    <td><label>Password:</label></td>
+                    <td><input type="password" name="password"></td>
+                </tr>
+                <tr>                    
+                    <td><label>Confirm PW:</label></td>
+                    <td><input type="password" name="confirm"></td>
+                </tr>                                                                                                
+            </table>
+            <button>Register</button>
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </form>
+        
+        <form action="login" method="post">
+            {%csrf_token%}
+            <h2>Login</h2>
+            <table>
+                <tr>                    
+                    <td><label>Email:</label></td>
+                    <td><input type="text" name="email1"></td>
+                </tr>
+                <tr>                    
+                    <td><label>Password:</label></td>
+                    <td><input type="password" name="password1"></td>
+                </tr>
+            </table>
+            <button>Log In</button>
+        </form>
+    </div>
+</body>
+</html>

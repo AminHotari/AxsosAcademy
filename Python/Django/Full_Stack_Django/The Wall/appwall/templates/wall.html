@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 3rem;
+            width: 95%;
+            margin: 0 auto;
+        }
+        h3{
+            font-family: sans-serif;
+            font-weight: 600;
+        }
+        .head{
+            display: flex;
+            align-items: center;
+        }
+        p{
+            font-family: sans-serif;
+            padding-right: 5rem;
+        }
+        a{
+            font-family: system-ui;
+        }
+        hr{
+            border: 0.1rem solid black;
+        }
+        .user-post{
+            width: 90%;
+            margin: 0 auto;
+            margin-top: 2rem;
+        }
+        textarea{
+            border: 0.2rem solid black;
+        }
+        button{
+            background-color: #2b78e4;
+            color: white;
+            border: 0.15rem solid black;
+            width: 8%;
+            height: 1.5rem;
+            box-shadow: 0.2rem 0.2rem black;
+            float: right;
+            margin-right: 7rem;
+        }
+        .post{
+            font-family: cursive;
+            font-weight: 500;
+        }
+        .comment-text{
+            font-family: cursive;
+            font-weight: 500;
+            margin-left: 2rem;
+        }      
+        input{
+            background-color: red;
+            color: white;
+            border: 0.15rem solid black;
+            width: 8%;
+            height: 1.5rem;
+            box-shadow: 0.2rem 0.2rem black;
+            float: right;
+            margin-right: 7rem;
+        }
+        .post-comment{
+            background-color: red;
+            color: white;
+            border: 0.15rem solid black;
+            width: 9%;
+            height: 1.5rem;
+            box-shadow: 0.2rem 0.2rem black;
+            /* /* float: right; */
+        }
+        main{
+            width: 90%;
+            margin: 0 auto;
+            margin-top: 2rem;
+        }
+        .message-name{
+            font-family: cursive;
+            font-size: large;
+        }
+
+        .message-content{
+            margin-left: 2rem;
+        }
+        .comment-name{
+            font-family: cursive;
+            font-size: large;
+            margin-left: 2rem;
+        }
+        .for-comment{
+            border: 0.2rem solid black;
+            margin-left: 2rem;    
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h3>CodingDojo Wall</h3>
+        <div class="head">       
+            <p>Welcome {{request.session.first_name}}</p>
+            <a href="/">log off</a>
+        </div>                 
+    </header><hr>
+    <form action="/wall/postmessage" method="post" class="user-post">
+        {%csrf_token%}
+        <h3 class="post">Post a message</h3>
+        <textarea name="message" cols="170" rows="7"></textarea><br>
+        <button>Post a message</button>
+    </form>
+    <main>
+        {%for message in messages%}
+        <div>
+            <p class="message-name">{{message.users.first_name}} {{message.users.last_name}} {{message.created_at}}</p>
+            {%if message.users.email == request.session.email %}
+            <form action="/wall/delete" method="post">
+                {%csrf_token%}
+                <input type="submit" value="delete message">
+                <input type="hidden" name="which_message" value="{{message.id}}">
+            </form>
+            {%endif%}            
+        </div>
+        <p class="message-content">{{message.message}}</p>        
+        {%for comment in message.commentsmessage.all%}
+        <p class="comment-name">{{comment.users.first_name}} {{comment.users.last_name}} {{comment.created_at}}</p>
+        <p class="message-content">{{comment.comment}}</p>
+        {%endfor%}
+        <form action="/wall/addcomment" method="post">
+            {%csrf_token%}
+            <h3 class="comment-text">Post a comment</h3>
+            <textarea name="comment" cols="165" rows="5" class="for-comment"></textarea>
+            <input type="hidden" name="which_message" value="{{message.id}}">
+            <input type="submit" value="Post a comment" class="post-comment">
+        </form><br>
+        {%endfor%}
+    </main>
+</body>
+</html>

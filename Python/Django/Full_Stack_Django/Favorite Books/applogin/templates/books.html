@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorite Books</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        header{
+            width: 95%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+        }
+        h2{
+            font-family: system-ui;
+            font-weight: 400;
+        }
+        .a-header{
+            font-family: sans-serif;
+            font-size: small;
+        }
+        hr{
+            width: 95%;
+            margin: 0 auto;
+            margin-top: 0.5rem;
+            border: 0.05rem solid black;
+        }
+        main{
+            width: 60%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-left: 2rem;
+        }
+        .fav_book{
+            border: 0.1rem solid black;
+        }
+        .add{
+            background-color: white;
+            box-shadow: 0.1rem 0.1rem black;
+            width: 15%;
+            margin-left: 4rem;
+        }
+        .text{
+            font-family: sans-serif;
+            font-size: small;
+        }
+        .h2_form{
+            font-family: system-ui;
+            font-size: larger;
+            margin-top: 0.5rem;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h2>Welcome, {{request.session.first_name}}!</h2>
+        <a href="/logout" class="a-header">Log Out</a>
+    </header><hr>
+    <main>
+        <form action="addbook" method="post">
+            {%csrf_token%}
+            <h2 class="h2_form">Add a Favorite Book</h2><br>
+            <table>
+                <tr>
+                    <td class="text">Title :</td>
+                    <td><input type="text" name="title" class="fav_book"></td>
+                </tr>
+                <tr>
+                    <td class="text">Description :</td>
+                    <td><textarea name="desc"cols="20" rows="3" class="fav_book"></textarea></td>
+                </tr>
+            </table>
+            <input type="submit" name="add_book" value="Add" class="add">
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </form>
+        <div>
+            <h2>All Books</h2>
+            {%for book in books%}       
+            <a href="/books/{{book.id}}">{{book.title}}</a>                      
+            <p>(added by {{book.uploaded_by.first_name}} {{book.uploaded_by.last_name}})</p>
+            {%if user in book.liked_by.all %}
+            <p>this is one of your favorites</p>
+            {%else%}
+            <a href="/addfav/{{book.id}}">Add to Favorites</a>
+            {%endif%} <br>
+            {%endfor%}
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorite Books</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        header{
+            width: 95%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+        }
+        h2{
+            font-family: system-ui;
+            font-weight: 400;
+        }
+        h3{
+            font-family: sans-serif;
+            font-weight: 400;
+        }
+        .a-header{
+            font-family: sans-serif;
+            font-size: small;
+        }
+        hr{
+            width: 95%;
+            margin: 0 auto;
+            margin-top: 0.5rem;
+            border: 0.05rem solid black;
+        }
+        main{
+            width: 60%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-left: 2rem;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2>Welcome, {{request.session.first_name}}!</h2>
+        <a href="/" class="a-header">Log Out</a>
+    </header><hr>
+    <main>
+        <div>
+            <form action="/update/{{book.id}}" method="post">
+            {%csrf_token%}           
+            {%if book.uploaded_by.email == request.session.email%}
+            <input type="text" name="book_title" value="{{book.title}}" >
+            {%else%}
+            <h3>{{book.title}}</h3>
+            {%endif%}
+            <p>Added by:{{book.uploaded_by.first_name}}</p>
+            <p>Added on:{{book.created_at}}</p>
+            <p>Last updated on:{{book.updated_at}}</p>
+            {%if book.uploaded_by.email == request.session.email%}
+            <p>Description: <textarea name="book_desc"cols="10" rows="4">{{book.desc}}</textarea></p>
+            {%else%}
+            <p>Description: {{book.desc}}</p>
+            {%endif%}            
+            {%if book.uploaded_by.email == request.session.email%}           
+            <input type="submit" value="Update">
+            {%endif%}
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            </form>
+            {%if book.uploaded_by.email == request.session.email%}
+            <form action="/delete/{{book.id}}" method="post">
+            {% csrf_token  %}
+            <input type="submit" value="Delete">
+            </form>
+            {%endif%}
+        </div>
+        <div>
+            <h3>Users Who Like This Book:</h3>           
+            <ul>
+                {%for user in book.liked_by.all%}
+                {%if user.email == request.session.email%}
+                <li>{{user.first_name}} {{user.last_name}} <a href="/unfav/{{book.id}}">Un-Favorite</a></li>                
+                {%else%}
+                <li>{{user.first_name}} {{user.last_name}}</li>
+                {%endif%}
+                {%endfor%}             
+            </ul>
+            {%if users not in book.liked_by.all%}
+            <a href="/addto/{{book.id}}">Add to Favorite</a>
+            {%endif%}            
+        </div>
+    </main>
+</body>
+</html>

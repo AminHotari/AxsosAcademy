@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        header{
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            width: 90%;
+        }
+        h2{
+            margin: 1.5rem 0 2rem 20rem;
+        }
+        .head{
+            margin-top: 0.5rem;
+        }
+        form{
+            width: 49%;
+            margin: 0 auto;
+        }
+        div{
+            display: flex;
+            align-items: center;
+        }
+        .title{
+            width: 40%;
+            margin-bottom: 1rem;
+        }
+        input{
+            margin-bottom: 1rem;
+        }
+        textarea{
+            margin-bottom: 1rem;
+        }
+        .date{
+            padding-left: 1.5rem;
+        }
+        button{
+            margin-left: 10rem;
+            box-shadow: 0.2rem 0.2rem;
+            background-color: white;
+        }
+        .gotoshow{
+            display: flex;
+            justify-content: center;
+            margin: 0.5rem 24rem 0 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2>Edit Show {{edit.id}}</h2>
+        <a href="/shows" class="head">Go Back</a>
+    </header>
+    <form action="/update" method="post">
+        {%csrf_token%}
+        <label>Title</label><br>
+        <input type="hidden" name="hide" value="{{edit.id}}">
+        <input type="text" name="title" class="title" value="{{edit.title}}">
+        <div>
+            <p>Network <br>
+                <input type="text" name="network" value="{{edit.network}}">
+            </p>
+            <p class="date">Release Date <br>
+                <input type="date" name="date" value={{edit.release_date | date:'Y-m-d'}}>
+            </p>
+        </div>
+        <label>Description</label><br>
+        <textarea name="desc" cols="39" rows="5">{{edit.description}}</textarea><br>
+        <button>Update</button>       
+    </form>
+    <a href="/shows/{{edit.id}}" class="gotoshow">Go to Show</a>        
+</body>
+</html>

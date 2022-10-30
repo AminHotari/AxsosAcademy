@@ -2,6 +2,7 @@ import java.util.ArrayList;
 class Order {
     private String name;
     private boolean ready;
+    private double total;
     private ArrayList<Item> items = new ArrayList<Item>();
 
     public Order() {
@@ -53,24 +54,35 @@ class Order {
 
 
     public void display(){
-        System.out.println("Customer Name:" + this.name);        
-        for(Item item : items){           
-            System.out.println(item.getNameofItem() + " - $" + item.getPriceOfItem());
+        System.out.println("Customer Name:" + this.name); 
+        for (int i=0;i<items.size();i++){
+            System.out.println(items.get(i).getNameofItem()+ " - "+ items.get(i).getPriceOfItem());
         }
-        double total = 0.0;
-        for(Item item : items){
-            total += item.getPriceOfItem();
-        }
+        System.out.println("Total: $" + getOrderTotal());
 
-        System.out.println("Total: $" + total);
+        // for(Item item : items){           
+        //     System.out.println(item.getNameofItem() + " - $" + item.getPriceOfItem());
+        // }
+        // double total = 0.0;
+        // for(Item item : items){
+        //     total += item.getPriceOfItem();
+        // }
+
+        // System.out.println("Total: $" + total);
     }
 
     public double getOrderTotal(){
-        double sum = 0.0;
         for(int i=0; i<items.size(); i++){
-            sum += items.get(i).getPriceOfItem();
+            this.total += items.get(i).getPriceOfItem();
         }
-        return sum;
+        return this.total;
+
+
+        // double sum = 0.0;
+        // for(int i=0; i<items.size(); i++){
+        //     sum += items.get(i).getPriceOfItem();
+        // }
+        // return sum;
 
     }
 

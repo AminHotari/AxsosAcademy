@@ -1,4 +1,0 @@
-INDEX VERSION 1.131+D:\Axsos\Axsos 22-8\Java-Stack\OOP\Abstract Art\.metadata\.plugins\org.eclipse.jdt.core
-1434893555.index
-1865797976.index
-478852402.index

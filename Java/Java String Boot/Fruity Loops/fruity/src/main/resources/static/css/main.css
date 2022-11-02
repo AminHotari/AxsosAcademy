@@ -1,0 +1,24 @@
+* {
+	margin : 0;
+	padding : 0;
+}
+
+h1{
+	color : #ef8080;
+	text-align: center;
+	width: 50%;
+    margin: 0 auto;
+    margin-top: 1rem;
+    margin-bottom: 5rem;
+    padding-right: 35rem;
+}
+
+
+table{
+	margin : 0 auto;
+}
+
+main{
+	width : 50%;
+	margin: 0 auto;
+}

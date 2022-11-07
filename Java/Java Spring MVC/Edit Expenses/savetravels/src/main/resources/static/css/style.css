@@ -1,0 +1,18 @@
+*{
+	margin:0;
+	padding:0;
+}
+
+.head{
+	margin:0 auto;
+	width:50%;
+}
+
+.body{
+	margin:0 auto;
+	width:50%;
+}
+
+.in{
+	margin-bottom:1rem;
+}

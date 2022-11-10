@@ -21,11 +21,11 @@
             <br><br>
             <form:form action="/register" method="post" modelAttribute="newUser">
                 <table>
-                    <tr>
+                	<tr>
                         <td><form:label path="userName">User Name:</form:label></td>
+                        <td><form:input path="userName"/></td>
                         <td><form:errors path="userName"></form:errors></td>
-                        <td><form:input path= "userName"/></td>                       						
-                    </tr>
+                    </tr>               
                     <tr>
                         <td><form:label path="email">Email:</form:label></td>
                         <td><form:input path="email"/></td>

@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+header{
+	margin: 0 auto;
+	width: 70%;
+	margin-top: 2rem;
+	font-family: cursive;
+	color:blue;
+	display: flex;
+	align-items: center;
+}
+
+main{
+    width: 70%;
+    height: 10rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10rem;
+    justify-content: space-evenly;
+    
+}
+
+.head{
+	margin-left: 8rem;
+}
+
+.top{
+	display: flex;
+	justify-content: space-between;
+}
+
+input{
+    width: 105%;
+    background-color: white;
+    box-shadow: 0.1rem 0.1rem black;
+    margin-left: 4rem;
+    height: 1.5rem;
+}

@@ -6,7 +6,7 @@ const Color = (props) => {
   const write={
     backgroundColor:props.color2,
     color:props.color1,
-    width:"20%",
+    // width:"20%",
     height:"5rem",
     margin:"0 auto",
     paddingTop: "2rem",
